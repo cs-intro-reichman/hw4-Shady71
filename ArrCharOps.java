@@ -195,18 +195,30 @@ public class ArrCharOps {
         int length1 = str1.length();
         int length2 = str2.length();
 
-        for (int i = 0; i < length1; i++) {
-            if (length1 < length2) {
-                return -1;
-            }
-            else if (length1 > length2) {
-                return 1;
-            }
-            else if (length1 == length2) {
-                
-            }         
+        if (length1 == 0 || length2 == 0) {
+            return -2;
+        }
+        else if (length1 < length2) {
+            return -1;
+        }
+        else if (length1 > length2) {
+            return 1;
         }
 
-        return -2;
+        for (int i = 0; i < length1; i++) {
+            char ch1 = str1.charAt(i);
+            char ch2 = str2.charAt(i);
+
+            if (ch1 != ch2) {
+                if (ch1 < ch2) {
+                    return -1;
+                }
+                else {
+                    return 1;
+                }
+            }
+        } 
+
+        return 0;
     }
 }
